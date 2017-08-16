@@ -92,6 +92,8 @@ function checkRoundWinner(playerPick, computerPick) {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
     }
+
+    setGamePoints();
 }
 
 function playerPick(playerPick) {   
@@ -105,10 +107,12 @@ function playerPick(playerPick) {
 function setGamePoints() {
     playerPointsElem.innerHTML = player.score;
     computerPointsElem.innerHTML = computer.score;
+
+    if (computer.score == 10 || player.score == 10) {
+	gameState = 'ended';
+}
 }
 
 //my code
 
-if (computer.score == 10 || player.score == 10) {
-	gameState = 'ended';
-}
+
